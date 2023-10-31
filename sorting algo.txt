@@ -1,0 +1,39 @@
+<?php
+q = $_REQUEST["name"];
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "item";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+
+$sql1 = "SELECT * from tall";
+$result = $conn->query($sql1);
+$hint = "";
+
+$sumX=0;
+$sumY=0;
+$sumXY=0;
+$sumXsq=0;
+
+// lookup all hints from array if $q is different from ""
+  while($row = $result->fetch_assoc()) {
+$sumX=$row['X']+$sumX;
+$sumY=$row['Y']+$sumY;
+$sumXY=$row['X']*$row['Y']+$sumXY;
+$sumXsq=$row['X']*$row['X']+$sumXsq;
+$n++;$k++;
+}
+
+$meanX=$sumX/$n;  $meanY=$sumY/$k;
+$b=$sumXY/$sumXsq;
+$a=$meanY-$b*$meanX;
+
+$x=28;
+$y=$a+$b*$x;
+echo $y;
+?>

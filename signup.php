@@ -1,4 +1,6 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -7,12 +9,21 @@ $vcode=rand(10,1000);
 $name=$_REQUEST['name'];
 $email=$_REQUEST['email'];
 $pass=$_REQUEST['pass'];
+$valid=true;
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
+$sql="SELECT * from userinfo";
+$result = $conn->query($sql);
+while($row = $result->fetch_assoc()) {
+  if($row['email']==$email) $valid=false;
+}
+
+if($valid==false) echo "email already exists  <a href='sign_up.php'>return";
+else{
 $sql = "INSERT INTO userinfo
 VALUES ('$name', '$email','$pass','$vcode')";
 
@@ -28,8 +39,7 @@ if ($conn->query($sql) === TRUE) {
  
 //Import PHPMailer classes into the global namespace
 //These must be at the top of your script, not inside a function
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
+
  
 //required files
 require 'phpmailer/src/Exception.php';
@@ -68,7 +78,7 @@ $mail->CharSet='UTF-8';
     // Success sent message alert
     if(!($mail->send())) echo $mail->ErrorInfo; else echo 'verification code sent';
 
-
+}
 
 
 ?>

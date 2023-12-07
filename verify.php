@@ -23,7 +23,7 @@ if($row = $result->fetch_assoc()) {echo 'account verified';
 $sql = " UPDATE userinfo SET vcode='0'  WHERE email='$email' and vcode='$vcode'" ;
 $result = $conn->query($sql);
 session_start();
-$_SESSION["user"] =$row['name'] ;   <a href='info.php'>proceed</a>";
+$_SESSION["user"] =$row['name'] ; ?>   <a href='info.php'>proceed</a>";  <?php
 }
  else echo 'wrong code';
 

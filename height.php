@@ -27,24 +27,20 @@
 <center>
 <body>
 
-<form action="signin.php" method="post" style="border:1px solid #ccc"  >
+<form action="furentry.php" style="border:1px solid #ccc"  >
 	<br><br><br><br>
-<image src="KMS.png" style="position:fixed;z-index:-10;top:0;left:0;">
 
-
+<image src="KMS.png" style="position:fixed;z-index:0;top:0;left:0;">
 <div class="slidecontainer"    style="position:fixed;top:0; background: linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%);width:100%">
 <center style="font-size:40px"> KENNEL RECOMMENDATION SYSTEM </center>
 <br><br><br><br>
-    <h1>Sign In</h1>
-    <p>Please fill in this form to sign in.</p>
-<center>
+    <h1>Enter Data </h1>
+    <p>Please fill in this form for new recommendation data</p>
     <hr>
 	
-	<table class="button" style="text-align: left;">;
-
-
-	<tr><td> Email </td> <td> <input name="email" type="email" required></td></tr>
-	<tr><td> Password </td><td> <input type="password" name="pass" required> </td></tr>
+	<table class="button" style="text-align: left;">
+	<tr><td> height of breed </td> <td> <input name="X" type="number" required></td></tr>
+	<tr><td> Area  </td> <td> <input name="Y" type="number" required></td></tr>
 	</table>
 
 
@@ -52,11 +48,11 @@
    
    
       <button type="submit" class="button"><span>SUBMIT </span></button>
-<br>
-no account yet <a href="sign_up.php"> sign up </a>
+<br> 
+
 
 </form>
 </body>
 </center>
-
+</
 </html>

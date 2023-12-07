@@ -1,3 +1,25 @@
+<?php
+$name=$_GET['name'];
+$q = $_REQUEST["name"];
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "item";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+
+$sql1 = "SELECT * from breed where name='$name' ";
+$result = $conn->query($sql1);
+$row = $result->fetch_assoc();
+
+
+?>
+
+
 <!DOCTYPE html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -79,47 +101,54 @@ document.getElementById("selected").src=str;
 <div class="slidecontainer"    style="position:fixed;top:0; background: linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%);width:100%">
 <center style="font-size:40px"> KENNEL RECOMMENDATION SYSTEM </center>
 <br><br><br><br>
+<a href="admin.php"> CANCEL </a>
 <h1> please fill the spaces  </h1>
 <table class="button" style="text-align: left;">
 <tr>
-<td>  <label >item name</label>  </td>
-<td>  <input type="text" id="name" name="name" onkeyup=showHint(this.value) > </td>
+<td>  item name </td>
+<td>  <input type="text" id="name" name="name" onkeyup=showHint(this.value) value=<?=$row['name']?> > </td>
 
 </tr>
 <tr>
-<td> <label >photo</label> </td>
+<td> photo</td>
  <td> <input type="file" name="photo" id="photo"> </td>
  <td> <input type="file" name="photo1" id="photo1"> </td>
 </tr>
 <tr>
-<td> <label >stock</label></td>
-<td>  <input type="number" id="stock" name="stock" min="0" max="100"> </td>
+<td> stock </td>
+<td>  <input type="number" id="stock" name="stock" min="0" max="100" value=<?=$row['stock']?> > </td>
 </tr>
 <tr>
-<td> <label >area</label></td>
-<td>  <input type="number" id="area" name="area" min="0" max="100"> </td>
+<td> area</td>
+<td>  <input type="number" id="area" name="area" min="0" max="100"  > </td>
 </tr>
 <tr>
-<td> <label >weight</label></td>
-<td>  <input type="number" id="weight" name="weight" min="0" max="100"> </td>
+<td> weight</td>
+<td>  <input type="number" id="weight" name="weight" min="0" max="100"   value=<?=$row['weight']?>> </td>
 </tr>
 <tr>
-<td> <label >fur</label></td>
-<td>  <input type="number" id="fur" name="fur" min="0" max="100"> </td>
+<td> fur</td>
+<td>  <input type="number" id="fur" name="fur" min="0" max="100"  value=<?=$row['fur']?>> </td>
 </tr>
 <tr>
-<td> <label for="price">price</label> </td>
- <td> <input type="number" id="price" name="price" min="0" max="1000000000"></td> 
+<td> price  </td>
+ <td> <input type="number" id="price" name="price" min="0" max="1000000000"  value=<?=$row['price'] ?> ></td> 
 </tr>
 <tr> 
-<td> <button type="submit"> insert </button>  </td>
-</tr>
+<td> <button type="submit"> insert </button>  </td> 
+
+
+ </tr> 
+
 </table>
+
+
 </div>
 <br>
 <br>
+
 <br>
-<p> <span id="txtHint"></span></p>
+<p> <span id="txtHint"> </span></p>
 
 
 </form>

@@ -36,8 +36,8 @@ echo '<center><table><tr>';
 	
 if($table<=1){
 $table++;
-echo '<td class="button"><image width=260 height=260 '.'src='.$row["image"]; ?>  onclick=select('<?=$row['image']?>','<?=$row['name']?>','<?=$row['stock']?>','<?=$row['price']?>')></image>  <?php 
-echo '<br><center>'.$row['name']; ?> <br><image src='find.png' class="button" width=30 height=30 onClick=zoom(<?=$row['name']?>)></image> <?php  echo '</td>';
+echo '<td class="buttonK"><image width=260 height=260 '.'src='.$row["image"]; ?>  onclick=select('<?=$row['image']?>','<?=$row['name']?>','<?=$row['stock']?>','<?=$row['price']?>')></image>  <?php 
+echo '<br><center>'.$row['name']; ?> <br><image src='find.png' class="buttonK" width=30 height=30 onClick=zoom(<?=$row['name']?>)></image> <?php  echo '</td>';
 
 } else {$table=0; echo '</tr><tr>';}
 
@@ -53,8 +53,8 @@ else {
 ?>
 
 <?php
-echo '<td class="button"><image width=218 height=218 '.'src='.$row["image"]; ?>  onclick=select('<?=$row['image']?>','<?=$row['name']?>','<?=$row['stock']?>','<?=$row['price']?>')></image>  <?php 
-echo '<br><center>'.$row['name']; ?> <br><image  class="button" src='find.png'  width=30 height=30 onclick=zoom('<?=$row['name']?>')></image> <?php  echo '</td>';
+echo '<td class="buttonK"><image width=218 height=218 '.'src='.$row["image"]; ?>  onclick=select('<?=$row['image']?>','<?=$row['name']?>','<?=$row['stock']?>','<?=$row['price']?>')></image>  <?php 
+echo '<br><center>'.$row['name']; ?> <br><image  class="buttonK" src='find.png'  width=30 height=30 onclick=zoom('<?=$row['name']?>')></image> <?php  echo '</td>';
 if($table<=1){
 $table++;
 

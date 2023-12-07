@@ -79,6 +79,7 @@ function showHint() {
 
 <br><br><br><br>
     <h1>Sign In</h1>
+    <p>we have sent verification code to <?=$email?></p>
     <p>Please fill in this form to sign in.</p>
     <hr>
 	

@@ -63,21 +63,7 @@ if ($conn->query($sql) === TRUE) {
   echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
-$sql1 = "SELECT * from breed";
-$result = $conn->query($sql1);
-echo "<table  border = 1 width = 100%>";
 
-if ($result->num_rows > 0) {
-  // output data of each row
-echo "<tr> <th>view</th> <th>name</th><th>stick</th><th>price</th></tr>";
-  while($row = $result->fetch_assoc()) {
-   
- echo "<tr> <td><img src=" . $row["name"] . "></td> <td>" . $row["name"]. " </td> <td> " . $row["stock"]. "</td> "." <td> <button>purchase</button> </td></tr>";
-  }
-echo "</table>";
-} else {
-  echo "0 results";
-}
 $conn->close();
 
 

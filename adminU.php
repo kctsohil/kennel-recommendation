@@ -265,7 +265,7 @@ window.addEventListener('keydown', function(e){
 <div id="slidegap"> <br><br><br><br></div>
 
 
-<br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br>
 <image src="KMS.png" style="position:fixed;z-index:-6;top:0;left:0;"></image>
 <class   style="z-index:3;position:fixed;top:20%; background: linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%);"><span id="usersignup"></span></class>
 <p> <span id="txtHint"></span></p>

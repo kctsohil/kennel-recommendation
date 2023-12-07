@@ -23,7 +23,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql1 = "SELECT * from breed ";
+$sql1 = "SELECT * from tall ";
 $result = $conn->query($sql1);
 
 $hint = "";
@@ -56,7 +56,7 @@ echo '</td><td>'.$row["name"].'</td><td>'.$row["stock"].'</td><td>'.$row["price"
 echo '</table>';
 }  
 else { */
-?>   <center> <table id="customers" ><tr><th>name</th><th> height </th> <th> weight </th><th> fur </th> <th> stock </th><th> price </th><th>  </th> </tr> <?php
+?>   <center> <table id="customers" ><tr><th>Area</th><th> height </th><th> actions </th> </tr> <?php
 
 
 
@@ -69,9 +69,9 @@ if ($q !== "") {
 
  while($row = $result->fetch_assoc()){ 
 
-  if (stristr($q, substr($row["name"], 0, $len))) { 
+  if (stristr($q, substr($row["Y"], 0, $len))) { 
 ?>
-<tr style="width:100%"><td> <?=$row['name']?> </td><td> <?=$row['height']?> </td><td> <?=$row['weight']?> </td><td> <?=$row['fur']?> </td><td> <?=$row['stock']?> </td><td> <?=$row['price']?> </td><td><a  href="breedEdit.php?name=<?=$row['name']?>"> modify</a><br><br><a  href="removeBr.php?name=<?=$row['name']?>"> remove</a></td></tr>
+<tr style="width:100%"><td> <?=$row['Y']?> </td><td> <?=$row['X']?> </td><td><button type="button" onclick=cancel('')> modify</button><a  href="pageedit.php?name=<?=$row['Y']?>" > delete</a></td></tr>
 <?php 
 
  }
@@ -81,7 +81,7 @@ if ($q !== "") {
   while($row = $result->fetch_assoc()){ 
 
     ?>
-<tr style="width:100%"><td> <?=$row['name']?> </td><td> <?=$row['height']?> </td><td> <?=$row['weight']?> </td><td> <?=$row['fur']?> </td><td> <?=$row['stock']?> </td><td> <?=$row['price']?> </td><td><a  href="breedEdit.php?name=<?=$row['name']?>"> modify</a><br><br><a  href="removeBr.php?name=<?=$row['name']?>"> remove</a></td></tr>
+<tr style="width:100%"><td> <?=$row['Y']?> </td><td> <?=$row['X']?> </td><td><button type="button" onclick=cancel('')> modify</button><a  href="pageedit.php?name=<?=$row['Y']?>"> delete</a></td></tr>
 <?php
 
 

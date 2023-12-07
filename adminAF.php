@@ -14,7 +14,7 @@ function showHint() {
     };
 	var name=document.getElementById("name").value;
 	
-   xmlhttp.open("POST", "searchtable.php?name="+name, true);
+   xmlhttp.open("POST", "searchDF.php?name="+name, true);
 //  xmlhttp.open("POST", "search.php", true);
     xmlhttp.send();
 xmlhttp.close();
@@ -53,7 +53,7 @@ function zoom(name) {
     };
 
 
-   xmlhttp.open("POST", "detail.php?name="+name , true);
+   xmlhttp.open("POST", "detailadmin.php?name="+name , true);
 //  xmlhttp.open("POST", "search.php", true);
     xmlhttp.send();
 xmlhttp.close();
@@ -61,8 +61,6 @@ xmlhttp.close();
 }
 
 function signinMenu() {
-  sessionStorage.clear();
-
 window.location.href = "sign_in.php";
 
 }
@@ -78,11 +76,9 @@ document.getElementById("orders").hidden=true;
   
 }
 
-function recommend() {
+function recommend(page) {
    
-       
- document.getElementById("slide").hidden=!(document.getElementById("slide").hidden);
- document.getElementById("slidegap").hidden=!(document.getElementById("slidegap").hidden);
+  window.location.href = page;
   
 }
 
@@ -231,15 +227,23 @@ window.addEventListener('keydown', function(e){
 <div class="slidecontainer"    style="position:fixed;top:0; background: linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%);width:100%">
 <center style="font-size:40px"> KENNEL RECOMMENDATION SYSTEM </center>
 <table width=100%  class="button" >
-<tr><td></td><td></td><td style="text-align:right;" id="username"><image width=50 height=50 src="user.png"></image><br><?=$name ?> 
+<tr><td></td><td><image src="korgi.gif" width=100 height=60></td><td style="text-align:right;" id="username"><image width=50 height=50 src="user.png"></image><br><?=$name ?> 
 
 
-   <br> <button onclick="signinMenu()" type="button">signOut</button></td><td></td>
+   <br> <button onclick="signinMenu()" type="button">signin</button></td><td></td>
 </tr>
 
 
 </table>
-<button type="button" class="button" onclick="recommend()">RECOMEND</button>
+<button type="button" class="button" onclick="recommend('adminK.php')">RECOMEND</button>
+<button type="button" class="button" onclick="recommend('adminU.php')">UserInfo</button>
+<button type="button" class="button" onclick="recommend('adminAF.php')">Algorithm data1</button>
+<button type="button" class="button" onclick="recommend('adminAH.php')">Algorithm data2</button>
+
+
+<br>
+
+
 <div id="slide" >
 <input type="range" min="1" max="100" value="50" class="slider" id="myRange1">
  <p>Your Area: <span id="s1"></span></p>
@@ -261,7 +265,7 @@ window.addEventListener('keydown', function(e){
 <div id="slidegap"> <br><br><br><br></div>
 
 
-<br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br>
 <image src="KMS.png" style="position:fixed;z-index:-6;top:0;left:0;"></image>
 <class   style="z-index:3;position:fixed;top:20%; background: linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%);"><span id="usersignup"></span></class>
 <p> <span id="txtHint"></span></p>

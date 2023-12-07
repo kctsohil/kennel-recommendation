@@ -27,7 +27,7 @@
 <center>
 <body>
 
-<form action="furentry.php" style="border:1px solid #ccc"  >
+<form action="tallentry.php" style="border:1px solid #ccc"  >
 	<br><br><br><br>
 
 <image src="KMS.png" style="position:fixed;z-index:0;top:0;left:0;">

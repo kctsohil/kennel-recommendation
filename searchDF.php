@@ -23,7 +23,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql1 = "SELECT * from weight ";
+$sql1 = "SELECT * from fur ";
 $result = $conn->query($sql1);
 
 $hint = "";

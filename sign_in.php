@@ -1,3 +1,10 @@
+<?php
+session_start();
+$_SESSION["user"]="";
+session_unset();
+session_destroy();
+?>
+
 <html >
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
